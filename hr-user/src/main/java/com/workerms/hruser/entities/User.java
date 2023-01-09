@@ -1,5 +1,10 @@
 package com.workerms.hruser.entities;
 
+import com.netflix.discovery.converters.Auto;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Objects;
@@ -7,7 +12,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "tb_user")
-public class User {
+public class User implements CommandLineRunner {
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -78,5 +86,10 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public void run(String... args) throws Exception {
+        //System.out.println("BCRYPT = " + passwordEncoder.encode("123456"));
     }
 }
