@@ -1,6 +1,5 @@
 package com.workerms.hruser.entities;
 
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -14,13 +13,15 @@ import java.util.Set;
 @Table(name = "tb_user")
 public class User implements CommandLineRunner {
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    //@Autowired
+    //private BCryptPasswordEncoder passwordEncoder;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    @Column(unique = true)
     private String email;
     private String password;
 
