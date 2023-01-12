@@ -1,4 +1,4 @@
-[# Curso Microsserviços Java com Spring Boot e Spring Cloud
+# Curso Microsserviços Java com Spring Boot e Spring Cloud
 
 
 # Collection Postman completa
